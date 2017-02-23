@@ -35,8 +35,7 @@
      function selectHandler(e){
       // Removed/commented out alert box in favour of a clickable confirm box which linkgs dynamically based on choice
       //  alert(data.getValue(chart.getSelection()[0].row, 0));
-      if (window.confirm('Click ok to be redirected'))
-      {
+      if (window.confirm('Click ok to be redirected')) {
           window.location.href='https://en.wikipedia.org/wiki/' + data.getValue(chart.getSelection()[0].row, 0);
       };
     };
