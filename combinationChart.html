@@ -2,6 +2,10 @@
 <head>
 <title>Google Charts Tutorial</title>
    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   <link rel="stylesheet" href="/resources/demos/style.css">
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
    <script type="text/javascript">
      google.charts.load('current', {packages: ['corechart']});
    </script>
@@ -28,12 +32,17 @@
 
      var chart = new google.visualization.ComboChart(document.getElementById('container'));
      chart.draw(data, options);
-   
+
      <!-- This block produces an alert box when a data point is clicked -->
      google.visualization.events.addListener(chart, 'select', selectHandler);
      function selectHandler(e){
-       alert(data.getValue(chart.getSelection()[0].row, 0));
-     };
+      // Removed/commented out alert box in favour of a clickable confirm box which linkgs dynamically based on choice
+      //  alert(data.getValue(chart.getSelection()[0].row, 0));
+      if (window.confirm('Click ok to be redirected'))
+      {
+          window.location.href='https://en.wikipedia.org/wiki/' + data.getValue(chart.getSelection()[0].row, 0);
+      };
+    };
   }
   google.charts.setOnLoadCallback(drawChart);
 </script>
